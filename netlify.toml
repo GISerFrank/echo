@@ -24,7 +24,6 @@ publish = "."
 from = "/*"
 to = "/index.html"
 status = 200
-conditions = {Role = ["admin"]}
 
 # 头部设置 - 安全性和性能优化
 [[headers]]
