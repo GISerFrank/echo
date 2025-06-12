@@ -1,0 +1,83 @@
+# echo播放器项目 .gitignore
+
+# 系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 编辑器配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node.js 依赖 (如果使用构建工具)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# 构建输出
+dist/
+build/
+.cache/
+.parcel-cache/
+
+# 环境变量
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 日志文件
+logs
+*.log
+
+# 临时文件
+tmp/
+temp/
+
+# 音频文件 (避免大文件进入版本控制)
+*.mp3
+*.wav
+*.flac
+*.aac
+*.ogg
+music/
+audio/
+
+# 用户上传内容
+uploads/
+user-content/
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# 备份文件
+*.bak
+*.backup
+
+# 压缩文件
+*.zip
+*.tar.gz
+*.rar
+
+# 测试覆盖率报告
+coverage/
+.nyc_output/
+
+# Netlify 本地配置
+.netlify/
+
+# 图片缓存
+.cache-images/

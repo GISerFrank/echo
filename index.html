@@ -1,10 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>温音 - 有温度的音乐播放器</title>
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
-$END$
+<!-- 加载动画 -->
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+</div>
+
+<!-- 浮动音符装饰 -->
+<div class="floating-notes">
+    <div class="note">♪</div>
+    <div class="note">♫</div>
+    <div class="note">♪</div>
+    <div class="note">♫</div>
+</div>
+
+<div class="container">
+    <header class="header">
+        <h1 class="logo breathing-effect">温音</h1>
+        <p class="tagline">从"听什么"到"为何而听"</p>
+    </header>
+
+    <div class="main-content">
+        <div class="player-section">
+            <div class="current-song">
+                <div class="album-cover" id="albumCover">
+                </div>
+                <div class="song-info">
+                    <h2>雨夜咖啡</h2>
+                    <p>温柔民谣 · 李清照</p>
+                    <div class="weather-context">
+                        <small>🌧️ 配合今晚的小雨，为你精心挑选</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="control-btn" title="上一首">⏮</button>
+                <button class="control-btn play-btn" id="playBtn" title="播放/暂停">▶</button>
+                <button class="control-btn" title="下一首">⏭</button>
+                <button class="control-btn" title="添加到喜爱">💝</button>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <div class="time-info">
+                    <span>2:34</span>
+                    <span>4:21</span>
+                </div>
+            </div>
+
+            <div class="music-diary">
+                <p class="diary-title">💭 你的音乐日记</p>
+                <p class="diary-content">"雨声和音乐交织，想起了那个温暖的秋夜，你说最喜欢这样安静的时光..."</p>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="card">
+                <h3 class="card-title">🌤️ 此刻心境</h3>
+                <div class="weather-info">
+                    <p><strong>北京 小雨 16°C</strong></p>
+                    <p>23:42 深夜时光</p>
+                </div>
+                <p class="mood-suggestion">适合一些安静的民谣，陪伴你的思绪飘远，让心情在音乐中找到归宿</p>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">🌍 共鸣电台</h3>
+                <div class="global-listeners">
+                    <div class="listener-count">此刻全球有 2,847 人</div>
+                    <p class="listener-subtitle">正在与你听同一首歌</p>
+                    <div class="resonance-actions">
+                        <button class="emoji-btn" title="发送拥抱">🤗</button>
+                        <button class="emoji-btn" title="击掌共鸣">👏</button>
+                        <button class="emoji-btn" title="温暖问候">☕</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">📅 那年今日</h3>
+                <div class="memory-item">
+                    <span class="memory-date">2023</span>
+                    <span class="memory-song">《月光奏鸣曲》- "那晚和你一起看月亮"</span>
+                </div>
+                <div class="memory-item">
+                    <span class="memory-date">2022</span>
+                    <span class="memory-song">《晴天》- "毕业那天的心情"</span>
+                </div>
+                <div class="memory-item">
+                    <span class="memory-date">2021</span>
+                    <span class="memory-song">《匆匆那年》- "青春的尾巴"</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-features">
+        <div class="feature-card">
+            <span class="feature-icon">📝</span>
+            <h3 class="feature-title">音乐日记</h3>
+            <p class="feature-desc">为每一天的音乐配上心情文字，让旋律承载记忆，多年后回顾时光里的温暖片段</p>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-icon">💌</span>
+            <h3 class="feature-title">情绪胶囊</h3>
+            <p class="feature-desc">录下此刻想说的话，封存一首歌，设定未来开启的时间，给未来的自己一份惊喜</p>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-icon">👫</span>
+            <h3 class="feature-title">二人世界</h3>
+            <p class="feature-desc">与挚友建立专属音乐空间，远程同步播放，分享彼此的音乐心情，仿佛身边有你</p>
+        </div>
+
+        <div class="feature-card">
+            <span class="feature-icon">🗺️</span>
+            <h3 class="feature-title">旅途歌单</h3>
+            <p class="feature-desc">自动生成旅行音乐轨迹，每首歌都连接着珍贵的时光记忆，重温那些美好的足迹</p>
+        </div>
+    </div>
+</div>
+
+<div class="coffee-steam">☕</div>
+<script src="js/main.js"></script>
 </body>
 </html>
