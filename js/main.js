@@ -156,57 +156,47 @@ document.querySelectorAll('.control-btn').forEach((btn, index) => {
     }
 });
 
-// 共鸣按钮交互
-document.querySelectorAll('.emoji-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        const emoji = this.textContent;
-        const messages = {
-            '🤗': '温暖的拥抱已送达',
-            '👏': '共鸣的掌声已送出',
-            '☕': '一杯温暖的咖啡已分享'
-        };
+// 播放队列项点击事件
+document.querySelectorAll('.queue-item').forEach((item, index) => {
+    item.addEventListener('click', function() {
+        // 移除所有active状态
+        document.querySelectorAll('.queue-item').forEach(i => i.classList.remove('active'));
+        // 添加当前项的active状态
+        this.classList.add('active');
 
-        // 按钮动画
-        this.style.transform = 'scale(1.5) rotate(15deg)';
-        this.style.background = 'rgba(212, 81, 111, 0.3)';
-
-        setTimeout(() => {
-            this.style.transform = '';
-            this.style.background = '';
-        }, 300);
-
-        showNotification(messages[emoji] + ' 💝');
-
-        // 创建飞行的表情
-        createFlyingEmoji(emoji, this);
+        const title = this.querySelector('.queue-title').textContent;
+        showNotification(`正在播放: ${title} 🎵`);
     });
 });
 
-function createFlyingEmoji(emoji, source) {
-    const flyingEmoji = document.createElement('div');
-    flyingEmoji.textContent = emoji;
-    flyingEmoji.style.cssText = `
-                position: fixed;
-                font-size: 24px;
-                pointer-events: none;
-                z-index: 1000;
-                transition: all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            `;
+// 播放器底部按钮交互
+document.querySelectorAll('.footer-btn').forEach((btn, index) => {
+    btn.addEventListener('click', function() {
+        const messages = ['已添加到我喜欢的音乐 💝', '已添加到歌单 📋', '分享链接已复制 🔗'];
+        if (index < messages.length) {
+            showNotification(messages[index]);
+        }
+        this.style.transform = 'scale(1.2)';
+        setTimeout(() => {
+            this.style.transform = '';
+        }, 200);
+    });
+});
 
-    const rect = source.getBoundingClientRect();
-    flyingEmoji.style.left = rect.left + rect.width / 2 + 'px';
-    flyingEmoji.style.top = rect.top + rect.height / 2 + 'px';
-
-    document.body.appendChild(flyingEmoji);
-
-    setTimeout(() => {
-        flyingEmoji.style.transform = 'translateY(-100px) scale(2)';
-        flyingEmoji.style.opacity = '0';
-    }, 100);
-
-    setTimeout(() => {
-        document.body.removeChild(flyingEmoji);
-    }, 2100);
+// 音量滑块交互
+const volumeSlider = document.querySelector('.volume-slider');
+if (volumeSlider) {
+    volumeSlider.addEventListener('input', function() {
+        const volume = this.value;
+        const volumeIcon = document.querySelector('.volume-icon');
+        if (volume == 0) {
+            volumeIcon.textContent = '🔇';
+        } else if (volume < 50) {
+            volumeIcon.textContent = '🔉';
+        } else {
+            volumeIcon.textContent = '🔊';
+        }
+    });
 }
 
 function showNotification(message) {
@@ -247,48 +237,61 @@ function showNotification(message) {
     }, 2500);
 }
 
-// 功能卡片交互
-document.querySelectorAll('.feature-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.background = 'rgba(255, 255, 255, 0.4)';
-        const icon = this.querySelector('.feature-icon');
-        icon.style.transform = 'scale(1.1) rotate(5deg)';
-    });
+// 推荐歌曲卡片交互
+document.querySelectorAll('.song-card').forEach(card => {
+    const playBtn = card.querySelector('.card-play-btn');
 
-    card.addEventListener('mouseleave', function() {
-        this.style.background = '';
-        const icon = this.querySelector('.feature-icon');
-        icon.style.transform = '';
+    playBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const title = card.querySelector('h4').textContent;
+        showNotification(`正在播放: ${title} 🎵`);
     });
 
     card.addEventListener('click', function() {
-        const title = this.querySelector('.feature-title').textContent;
-        showNotification(`即将推出"${title}"功能 🚀`);
+        const title = this.querySelector('h4').textContent;
+        const artist = this.querySelector('p').textContent;
+        showNotification(`已添加到队列: ${title} - ${artist}`);
     });
 });
 
-// 记忆项目交互
-document.querySelectorAll('.memory-item').forEach(item => {
-    item.addEventListener('click', function() {
-        const song = this.querySelector('.memory-song').textContent;
-        showNotification(`正在播放回忆中的 ${song.split('-')[0]} 🎵`);
+// 侧边栏链接交互
+document.querySelectorAll('.sidebar-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        // 移除所有active状态
+        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+        // 添加当前链接的active状态
+        this.classList.add('active');
 
-        // 模拟播放历史歌曲
-        this.style.background = 'rgba(212, 175, 55, 0.1)';
-        setTimeout(() => {
-            this.style.background = '';
-        }, 1000);
+        const linkText = this.querySelector('span:last-child').textContent;
+        showNotification(`正在加载 ${linkText}...`);
     });
 });
 
-// 模拟实时更新共鸣人数
-const listenerCount = document.querySelector('.listener-count');
-setInterval(() => {
-    const currentCount = parseInt(listenerCount.textContent.match(/\d+/)[0]);
-    const change = Math.floor(Math.random() * 20) - 10;
-    const newCount = Math.max(1000, currentCount + change);
-    listenerCount.innerHTML = `此刻全球有 ${newCount.toLocaleString()} 人`;
-}, 8000);
+// 歌单项交互
+document.querySelectorAll('.playlist-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        const playlistName = this.textContent;
+        showNotification(`正在打开歌单: ${playlistName} 🎵`);
+    });
+});
+
+// 新建歌单按钮
+const addBtn = document.querySelector('.add-btn');
+if (addBtn) {
+    addBtn.addEventListener('click', function() {
+        showNotification('新建歌单功能即将推出 ✨');
+    });
+}
+
+// 清空队列按钮
+const clearBtn = document.querySelector('.clear-btn');
+if (clearBtn) {
+    clearBtn.addEventListener('click', function() {
+        showNotification('播放队列已清空');
+    });
+}
 
 // 咖啡杯动态显示
 const coffeeElement = document.querySelector('.coffee-steam');
@@ -380,42 +383,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// 节日/特殊时间检测
-function checkSpecialTime() {
-    const now = new Date();
-    const hour = now.getHours();
-    const month = now.getMonth() + 1;
-    const date = now.getDate();
+// 导航菜单交互
+document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        // 移除所有active状态
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        // 添加当前按钮的active状态
+        this.classList.add('active');
 
-    let specialMessage = '';
-
-    if (hour >= 0 && hour < 6) {
-        specialMessage = '🌙 深夜时光，音乐伴你入眠';
-    } else if (hour >= 6 && hour < 12) {
-        specialMessage = '🌅 早安！用音乐开启美好的一天';
-    } else if (hour >= 12 && hour < 18) {
-        specialMessage = '☀️ 午后时光，让音乐放松你的心情';
-    } else {
-        specialMessage = '🌆 傍晚时分，享受音乐的温暖';
-    }
-
-    // 特殊节日检测
-    if (month === 2 && date === 14) {
-        specialMessage = '💝 情人节快乐！为你准备了爱的歌单';
-    } else if (month === 12 && date === 25) {
-        specialMessage = '🎄 圣诞快乐！温暖的节日音乐陪伴你';
-    }
-
-    return specialMessage;
-}
-
-// 显示特殊时间消息
-setTimeout(() => {
-    const specialMessage = checkSpecialTime();
-    if (Math.random() > 0.7) { // 30%概率显示
-        showNotification(specialMessage);
-    }
-}, 3000);
+        const page = this.textContent;
+        showNotification(`正在加载 ${page} 页面...`);
+    });
+});
 
 console.log('🎵 温音播放器已加载完成！');
 console.log('💡 快捷键提示：空格键播放/暂停，左右箭头键切换歌曲');
