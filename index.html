@@ -68,6 +68,30 @@
                     <a href="#" class="playlist-item">☕ 工作时光</a>
                 </div>
             </div>
+
+            <div class="features-section">
+                <div class="playlist-header">
+                    <h3>特色功能</h3>
+                </div>
+                <div class="feature-links">
+                    <a href="#" class="feature-link" data-feature="diary">
+                        <span class="feature-icon-small">📝</span>
+                        <span>音乐日记</span>
+                    </a>
+                    <a href="#" class="feature-link" data-feature="capsule">
+                        <span class="feature-icon-small">💌</span>
+                        <span>情绪胶囊</span>
+                    </a>
+                    <a href="#" class="feature-link" data-feature="together">
+                        <span class="feature-icon-small">👫</span>
+                        <span>二人世界</span>
+                    </a>
+                    <a href="#" class="feature-link" data-feature="journey">
+                        <span class="feature-icon-small">🗺️</span>
+                        <span>旅途歌单</span>
+                    </a>
+                </div>
+            </div>
         </div>
 
         <div class="center-content">
@@ -109,7 +133,7 @@
                 </div>
             </div>
 
-            <div class="recommendations-section">
+            <div class="recommendations-section" id="home-section">
                 <h3 class="section-title">为你推荐</h3>
                 <div class="song-grid">
                     <div class="song-card">
@@ -143,6 +167,178 @@
                             <p>杜甫</p>
                         </div>
                         <button class="card-play-btn">▶</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 音乐日记功能 -->
+            <div class="feature-detail-section hidden" id="diary-section">
+                <div class="feature-header">
+                    <h3 class="section-title">📝 音乐日记</h3>
+                    <p class="feature-subtitle">记录每一天的音乐心情</p>
+                </div>
+                <div class="diary-editor">
+                    <div class="current-song-tag">
+                        <span class="tag-label">当前歌曲：</span>
+                        <span class="tag-value">雨夜咖啡 - 李清照</span>
+                    </div>
+                    <textarea class="diary-input" placeholder="写下此刻的心情和感受...&#10;&#10;雨声和音乐交织，想起了那个温暖的秋夜..."></textarea>
+                    <div class="diary-actions">
+                        <button class="btn-secondary">取消</button>
+                        <button class="btn-primary">保存日记</button>
+                    </div>
+                </div>
+                <div class="diary-list">
+                    <h4 class="subsection-title">我的日记</h4>
+                    <div class="diary-entry">
+                        <div class="diary-date">2024年10月20日</div>
+                        <div class="diary-song">🎵 雨夜咖啡 - 李清照</div>
+                        <div class="diary-text">"雨声和音乐交织，想起了那个温暖的秋夜，你说最喜欢这样安静的时光..."</div>
+                    </div>
+                    <div class="diary-entry">
+                        <div class="diary-date">2024年10月18日</div>
+                        <div class="diary-song">🎵 夏日微风 - 王安石</div>
+                        <div class="diary-text">"午后的阳光洒在书桌上，这首歌让我想起了那个夏天的午后..."</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 情绪胶囊功能 -->
+            <div class="feature-detail-section hidden" id="capsule-section">
+                <div class="feature-header">
+                    <h3 class="section-title">💌 情绪胶囊</h3>
+                    <p class="feature-subtitle">给未来的自己留下一份惊喜</p>
+                </div>
+                <div class="capsule-creator">
+                    <div class="capsule-form">
+                        <div class="form-group">
+                            <label>选择一首歌</label>
+                            <div class="song-selector">
+                                <span>雨夜咖啡 - 李清照</span>
+                                <button class="change-btn">更换</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>写下想说的话</label>
+                            <textarea class="capsule-message" placeholder="给未来的自己说些什么..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>开启时间</label>
+                            <input type="date" class="date-input">
+                        </div>
+                        <button class="btn-primary btn-large">封存胶囊</button>
+                    </div>
+                </div>
+                <div class="capsule-list">
+                    <h4 class="subsection-title">我的胶囊</h4>
+                    <div class="capsule-item locked">
+                        <div class="capsule-icon">🔒</div>
+                        <div class="capsule-info">
+                            <div class="capsule-title">2024年的夏天</div>
+                            <div class="capsule-date">将于 2025年6月1日 开启</div>
+                        </div>
+                    </div>
+                    <div class="capsule-item unlocked">
+                        <div class="capsule-icon">✨</div>
+                        <div class="capsule-info">
+                            <div class="capsule-title">去年的今天</div>
+                            <div class="capsule-date">已开启</div>
+                        </div>
+                        <button class="view-btn">查看</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 二人世界功能 -->
+            <div class="feature-detail-section hidden" id="together-section">
+                <div class="feature-header">
+                    <h3 class="section-title">👫 二人世界</h3>
+                    <p class="feature-subtitle">与挚友一起分享音乐时光</p>
+                </div>
+                <div class="together-rooms">
+                    <button class="btn-primary btn-large">创建专属空间</button>
+                    <div class="room-list">
+                        <div class="room-item active">
+                            <div class="room-avatar">💑</div>
+                            <div class="room-info">
+                                <div class="room-name">与小雨的音乐空间</div>
+                                <div class="room-status online">🟢 对方在线</div>
+                                <div class="room-playing">正在播放：月光奏鸣曲</div>
+                            </div>
+                            <button class="join-btn">加入</button>
+                        </div>
+                        <div class="room-item">
+                            <div class="room-avatar">👨‍👩‍👧</div>
+                            <div class="room-info">
+                                <div class="room-name">家人的音乐时光</div>
+                                <div class="room-status offline">⚪ 对方离线</div>
+                            </div>
+                            <button class="join-btn">加入</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="sync-controls">
+                    <h4 class="subsection-title">同步控制</h4>
+                    <div class="sync-options">
+                        <label class="toggle-option">
+                            <input type="checkbox" checked>
+                            <span>同步播放进度</span>
+                        </label>
+                        <label class="toggle-option">
+                            <input type="checkbox" checked>
+                            <span>同步切歌</span>
+                        </label>
+                        <label class="toggle-option">
+                            <input type="checkbox">
+                            <span>允许对方控制</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 旅途歌单功能 -->
+            <div class="feature-detail-section hidden" id="journey-section">
+                <div class="feature-header">
+                    <h3 class="section-title">🗺️ 旅途歌单</h3>
+                    <p class="feature-subtitle">用音乐记录每一次旅行</p>
+                </div>
+                <div class="journey-map">
+                    <div class="map-placeholder">
+                        <div class="map-icon">🌍</div>
+                        <p>你的音乐足迹地图</p>
+                    </div>
+                </div>
+                <div class="journey-list">
+                    <h4 class="subsection-title">我的旅程</h4>
+                    <div class="journey-item">
+                        <div class="journey-cover"></div>
+                        <div class="journey-info">
+                            <div class="journey-title">🏖️ 2024夏日海边之旅</div>
+                            <div class="journey-location">📍 三亚 · 海南</div>
+                            <div class="journey-date">2024年7月15日 - 7月22日</div>
+                            <div class="journey-songs">18 首歌曲</div>
+                        </div>
+                        <button class="play-journey-btn">▶</button>
+                    </div>
+                    <div class="journey-item">
+                        <div class="journey-cover"></div>
+                        <div class="journey-info">
+                            <div class="journey-title">🏔️ 西藏朝圣之旅</div>
+                            <div class="journey-location">📍 拉萨 · 西藏</div>
+                            <div class="journey-date">2024年5月1日 - 5月10日</div>
+                            <div class="journey-songs">25 首歌曲</div>
+                        </div>
+                        <button class="play-journey-btn">▶</button>
+                    </div>
+                    <div class="journey-item">
+                        <div class="journey-cover"></div>
+                        <div class="journey-info">
+                            <div class="journey-title">🌸 春日京都赏樱</div>
+                            <div class="journey-location">📍 京都 · 日本</div>
+                            <div class="journey-date">2024年4月5日 - 4月12日</div>
+                            <div class="journey-songs">32 首歌曲</div>
+                        </div>
+                        <button class="play-journey-btn">▶</button>
                     </div>
                 </div>
             </div>

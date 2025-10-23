@@ -396,5 +396,165 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
     });
 });
 
+// 特色功能切换
+document.querySelectorAll('.feature-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const featureType = this.getAttribute('data-feature');
+
+        // 移除所有feature-link的active状态
+        document.querySelectorAll('.feature-link').forEach(l => l.classList.remove('active'));
+        // 添加当前链接的active状态
+        this.classList.add('active');
+
+        // 隐藏所有功能区域
+        document.querySelectorAll('.feature-detail-section').forEach(section => {
+            section.classList.add('hidden');
+        });
+        document.getElementById('home-section').classList.add('hidden');
+
+        // 显示对应的功能区域
+        const sectionId = featureType + '-section';
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.classList.remove('hidden');
+        }
+
+        const featureName = this.textContent.trim();
+        showNotification(`已切换到 ${featureName}`);
+    });
+});
+
+// 侧边栏首页链接点击事件
+document.querySelectorAll('.sidebar-link').forEach(link => {
+    const linkText = link.querySelector('span:last-child')?.textContent;
+    if (linkText === '首页') {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // 移除所有active状态
+            document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+            document.querySelectorAll('.feature-link').forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+
+            // 隐藏所有功能区域
+            document.querySelectorAll('.feature-detail-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // 显示首页推荐区域
+            document.getElementById('home-section').classList.remove('hidden');
+
+            showNotification('已返回首页');
+        });
+    }
+});
+
+// 音乐日记 - 保存按钮
+const diarySection = document.getElementById('diary-section');
+if (diarySection) {
+    const saveBtn = diarySection.querySelector('.btn-primary');
+    const cancelBtn = diarySection.querySelector('.btn-secondary');
+    const diaryInput = diarySection.querySelector('.diary-input');
+
+    if (saveBtn) {
+        saveBtn.addEventListener('click', function() {
+            const content = diaryInput.value.trim();
+            if (content) {
+                showNotification('日记已保存 ✨');
+                diaryInput.value = '';
+            } else {
+                showNotification('请先写下你的心情...');
+            }
+        });
+    }
+
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', function() {
+            diaryInput.value = '';
+            showNotification('已取消编辑');
+        });
+    }
+}
+
+// 情绪胶囊 - 封存按钮
+const capsuleSection = document.getElementById('capsule-section');
+if (capsuleSection) {
+    const sealBtn = capsuleSection.querySelector('.btn-large');
+    const changeBtn = capsuleSection.querySelector('.change-btn');
+    const viewBtn = capsuleSection.querySelector('.view-btn');
+
+    if (sealBtn) {
+        sealBtn.addEventListener('click', function() {
+            const message = capsuleSection.querySelector('.capsule-message').value;
+            const date = capsuleSection.querySelector('.date-input').value;
+
+            if (message && date) {
+                showNotification('情绪胶囊已封存 💌');
+            } else {
+                showNotification('请填写完整信息');
+            }
+        });
+    }
+
+    if (changeBtn) {
+        changeBtn.addEventListener('click', function() {
+            showNotification('选歌功能开发中...');
+        });
+    }
+
+    if (viewBtn) {
+        viewBtn.addEventListener('click', function() {
+            showNotification('正在打开胶囊... ✨');
+        });
+    }
+}
+
+// 二人世界 - 房间交互
+const togetherSection = document.getElementById('together-section');
+if (togetherSection) {
+    const createBtn = togetherSection.querySelector('.btn-large');
+    const joinBtns = togetherSection.querySelectorAll('.join-btn');
+
+    if (createBtn) {
+        createBtn.addEventListener('click', function() {
+            showNotification('正在创建专属空间... 👫');
+        });
+    }
+
+    joinBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const roomName = this.closest('.room-item').querySelector('.room-name').textContent;
+            showNotification(`正在加入 ${roomName}...`);
+        });
+    });
+}
+
+// 旅途歌单 - 播放按钮
+const journeySection = document.getElementById('journey-section');
+if (journeySection) {
+    const playBtns = journeySection.querySelectorAll('.play-journey-btn');
+
+    playBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const journeyTitle = this.closest('.journey-item').querySelector('.journey-title').textContent;
+            showNotification(`正在播放 ${journeyTitle} 🎵`);
+        });
+    });
+
+    // 旅途项点击
+    const journeyItems = journeySection.querySelectorAll('.journey-item');
+    journeyItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            if (!e.target.closest('.play-journey-btn')) {
+                const title = this.querySelector('.journey-title').textContent;
+                showNotification(`查看 ${title} 详情`);
+            }
+        });
+    });
+}
+
 console.log('🎵 温音播放器已加载完成！');
 console.log('💡 快捷键提示：空格键播放/暂停，左右箭头键切换歌曲');
+console.log('✨ 特色功能：音乐日记、情绪胶囊、二人世界、旅途歌单');
