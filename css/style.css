@@ -744,6 +744,567 @@ body::before {
     color: var(--text-light);
 }
 
+/* 特色功能区域 */
+.features-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(139, 115, 85, 0.1);
+}
+
+.feature-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.feature-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.feature-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--text-primary);
+}
+
+.feature-link.active {
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--primary-warm);
+    font-weight: 500;
+}
+
+.feature-icon-small {
+    font-size: 16px;
+}
+
+/* 功能详情区域 */
+.feature-detail-section {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.feature-detail-section.hidden {
+    display: none;
+}
+
+.feature-header {
+    margin-bottom: 25px;
+}
+
+.feature-subtitle {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.subsection-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+/* 通用按钮样式 */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-warm), #f4e4bc);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #f4e4bc, var(--primary-warm));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--text-primary);
+    border: 1px solid rgba(139, 115, 85, 0.2);
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.btn-large {
+    padding: 14px 32px;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* 音乐日记样式 */
+.diary-editor {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+}
+
+.current-song-tag {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 10px;
+    font-size: 13px;
+}
+
+.tag-label {
+    color: var(--text-secondary);
+    margin-right: 8px;
+}
+
+.tag-value {
+    color: var(--primary-warm);
+    font-weight: 500;
+}
+
+.diary-input {
+    width: 100%;
+    min-height: 150px;
+    padding: 15px;
+    border: 1px solid rgba(139, 115, 85, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.3);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+    margin-bottom: 15px;
+}
+
+.diary-input:focus {
+    outline: none;
+    border-color: var(--primary-warm);
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.diary-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.diary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.diary-entry {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 18px;
+    border-radius: 14px;
+    transition: all 0.3s ease;
+}
+
+.diary-entry:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateX(5px);
+}
+
+.diary-date {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.diary-song {
+    font-size: 13px;
+    color: var(--primary-warm);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.diary-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* 情绪胶囊样式 */
+.capsule-creator {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+}
+
+.capsule-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.song-selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.change-btn {
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--primary-warm);
+    border: none;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.change-btn:hover {
+    background: var(--primary-warm);
+    color: white;
+}
+
+.capsule-message {
+    width: 100%;
+    min-height: 120px;
+    padding: 15px;
+    border: 1px solid rgba(139, 115, 85, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.3);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.capsule-message:focus {
+    outline: none;
+    border-color: var(--primary-warm);
+}
+
+.date-input {
+    padding: 12px 15px;
+    border: 1px solid rgba(139, 115, 85, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.date-input:focus {
+    outline: none;
+    border-color: var(--primary-warm);
+}
+
+.capsule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.capsule-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    transition: all 0.3s ease;
+}
+
+.capsule-item:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.capsule-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.capsule-info {
+    flex: 1;
+}
+
+.capsule-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.capsule-date {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.view-btn {
+    background: var(--primary-warm);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+    background: #f4e4bc;
+    color: var(--secondary-warm);
+}
+
+/* 二人世界样式 */
+.together-rooms {
+    margin-bottom: 30px;
+}
+
+.room-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.room-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.room-item:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.room-item.active {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(244, 228, 188, 0.15));
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.room-avatar {
+    font-size: 40px;
+    flex-shrink: 0;
+}
+
+.room-info {
+    flex: 1;
+}
+
+.room-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.room-status {
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.room-status.online {
+    color: #4CAF50;
+}
+
+.room-status.offline {
+    color: var(--text-light);
+}
+
+.room-playing {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.join-btn {
+    background: var(--primary-warm);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.join-btn:hover {
+    background: #f4e4bc;
+    color: var(--secondary-warm);
+    transform: scale(1.05);
+}
+
+.sync-controls {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.sync-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.toggle-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.toggle-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* 旅途歌单样式 */
+.journey-map {
+    margin-bottom: 30px;
+}
+
+.map-placeholder {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(244, 228, 188, 0.15));
+    border: 2px dashed rgba(212, 175, 55, 0.3);
+    border-radius: 16px;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.map-icon {
+    font-size: 64px;
+    margin-bottom: 15px;
+}
+
+.map-placeholder p {
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+.journey-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.journey-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.journey-item:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.journey-cover {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.6), rgba(244, 228, 188, 0.6));
+    border-radius: 12px;
+}
+
+.journey-info {
+    flex: 1;
+}
+
+.journey-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.journey-location {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.journey-date {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 4px;
+}
+
+.journey-songs {
+    font-size: 13px;
+    color: var(--primary-warm);
+    font-weight: 500;
+}
+
+.play-journey-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary-warm);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.play-journey-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
+}
+
+.hidden {
+    display: none;
+}
+
 
 
 .coffee-steam {
