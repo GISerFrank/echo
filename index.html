@@ -23,111 +23,178 @@
 
 <div class="container">
     <header class="header">
-        <h1 class="logo breathing-effect">温音</h1>
-        <p class="tagline">从"听什么"到"为何而听"</p>
+        <div class="header-left">
+            <h1 class="logo">温音</h1>
+        </div>
+        <nav class="nav-menu">
+            <button class="nav-btn active" data-page="home">首页</button>
+            <button class="nav-btn" data-page="search">搜索</button>
+            <button class="nav-btn" data-page="library">音乐库</button>
+            <button class="nav-btn" data-page="playlists">我的歌单</button>
+        </nav>
+        <div class="header-right">
+            <button class="icon-btn" title="设置">⚙️</button>
+            <div class="user-avatar" title="用户">👤</div>
+        </div>
     </header>
 
     <div class="main-content">
-        <div class="player-section">
-            <div class="current-song">
-                <div class="album-cover" id="albumCover">
+        <div class="left-sidebar">
+            <div class="quick-links">
+                <a href="#" class="sidebar-link active">
+                    <span class="link-icon">🏠</span>
+                    <span>首页</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="link-icon">🔍</span>
+                    <span>搜索</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="link-icon">📚</span>
+                    <span>音乐库</span>
+                </a>
+            </div>
+
+            <div class="playlists-section">
+                <div class="playlist-header">
+                    <h3>我的歌单</h3>
+                    <button class="add-btn" title="新建歌单">+</button>
                 </div>
-                <div class="song-info">
-                    <h2>雨夜咖啡</h2>
-                    <p>温柔民谣 · 李清照</p>
-                    <div class="weather-context">
-                        <small>🌧️ 配合今晚的小雨，为你精心挑选</small>
+                <div class="playlist-list">
+                    <a href="#" class="playlist-item">💝 我喜欢的音乐</a>
+                    <a href="#" class="playlist-item">🌧️ 雨天专属</a>
+                    <a href="#" class="playlist-item">🎸 民谣精选</a>
+                    <a href="#" class="playlist-item">🌙 夜深人静</a>
+                    <a href="#" class="playlist-item">☕ 工作时光</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="center-content">
+            <div class="player-section">
+                <div class="current-song">
+                    <div class="album-cover" id="albumCover"></div>
+                    <div class="song-info">
+                        <h2>雨夜咖啡</h2>
+                        <p>温柔民谣 · 李清照</p>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="control-btn" title="随机播放">🔀</button>
+                    <button class="control-btn" title="上一首">⏮</button>
+                    <button class="control-btn play-btn" id="playBtn" title="播放/暂停">▶</button>
+                    <button class="control-btn" title="下一首">⏭</button>
+                    <button class="control-btn" title="循环播放">🔁</button>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    <div class="time-info">
+                        <span>2:34</span>
+                        <span>4:21</span>
+                    </div>
+                </div>
+
+                <div class="player-footer">
+                    <button class="footer-btn" title="添加到喜爱">💝</button>
+                    <button class="footer-btn" title="添加到歌单">📋</button>
+                    <button class="footer-btn" title="分享">🔗</button>
+                    <div class="volume-control">
+                        <span class="volume-icon">🔊</span>
+                        <input type="range" class="volume-slider" min="0" max="100" value="75">
                     </div>
                 </div>
             </div>
 
-            <div class="controls">
-                <button class="control-btn" title="上一首">⏮</button>
-                <button class="control-btn play-btn" id="playBtn" title="播放/暂停">▶</button>
-                <button class="control-btn" title="下一首">⏭</button>
-                <button class="control-btn" title="添加到喜爱">💝</button>
-            </div>
-
-            <div class="progress-container">
-                <div class="progress-bar" id="progressBar">
-                    <div class="progress" id="progress"></div>
-                </div>
-                <div class="time-info">
-                    <span>2:34</span>
-                    <span>4:21</span>
-                </div>
-            </div>
-
-            <div class="music-diary">
-                <p class="diary-title">💭 你的音乐日记</p>
-                <p class="diary-content">"雨声和音乐交织，想起了那个温暖的秋夜，你说最喜欢这样安静的时光..."</p>
-            </div>
-        </div>
-
-        <div class="sidebar">
-            <div class="card">
-                <h3 class="card-title">🌤️ 此刻心境</h3>
-                <div class="weather-info">
-                    <p><strong>北京 小雨 16°C</strong></p>
-                    <p>23:42 深夜时光</p>
-                </div>
-                <p class="mood-suggestion">适合一些安静的民谣，陪伴你的思绪飘远，让心情在音乐中找到归宿</p>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">🌍 共鸣电台</h3>
-                <div class="global-listeners">
-                    <div class="listener-count">此刻全球有 2,847 人</div>
-                    <p class="listener-subtitle">正在与你听同一首歌</p>
-                    <div class="resonance-actions">
-                        <button class="emoji-btn" title="发送拥抱">🤗</button>
-                        <button class="emoji-btn" title="击掌共鸣">👏</button>
-                        <button class="emoji-btn" title="温暖问候">☕</button>
+            <div class="recommendations-section">
+                <h3 class="section-title">为你推荐</h3>
+                <div class="song-grid">
+                    <div class="song-card">
+                        <div class="song-card-cover"></div>
+                        <div class="song-card-info">
+                            <h4>夏日微风</h4>
+                            <p>王安石</p>
+                        </div>
+                        <button class="card-play-btn">▶</button>
+                    </div>
+                    <div class="song-card">
+                        <div class="song-card-cover"></div>
+                        <div class="song-card-info">
+                            <h4>星空物语</h4>
+                            <p>苏轼</p>
+                        </div>
+                        <button class="card-play-btn">▶</button>
+                    </div>
+                    <div class="song-card">
+                        <div class="song-card-cover"></div>
+                        <div class="song-card-info">
+                            <h4>晨曦序曲</h4>
+                            <p>李白</p>
+                        </div>
+                        <button class="card-play-btn">▶</button>
+                    </div>
+                    <div class="song-card">
+                        <div class="song-card-cover"></div>
+                        <div class="song-card-info">
+                            <h4>月下独酌</h4>
+                            <p>杜甫</p>
+                        </div>
+                        <button class="card-play-btn">▶</button>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="card">
-                <h3 class="card-title">📅 那年今日</h3>
-                <div class="memory-item">
-                    <span class="memory-date">2023</span>
-                    <span class="memory-song">《月光奏鸣曲》- "那晚和你一起看月亮"</span>
+        <div class="right-sidebar">
+            <div class="queue-header">
+                <h3>播放队列</h3>
+                <button class="clear-btn">清空</button>
+            </div>
+            <div class="queue-list">
+                <div class="queue-item active">
+                    <span class="queue-number">1</span>
+                    <div class="queue-info">
+                        <div class="queue-title">雨夜咖啡</div>
+                        <div class="queue-artist">李清照</div>
+                    </div>
+                    <span class="queue-duration">4:21</span>
                 </div>
-                <div class="memory-item">
-                    <span class="memory-date">2022</span>
-                    <span class="memory-song">《晴天》- "毕业那天的心情"</span>
+                <div class="queue-item">
+                    <span class="queue-number">2</span>
+                    <div class="queue-info">
+                        <div class="queue-title">夏日微风</div>
+                        <div class="queue-artist">王安石</div>
+                    </div>
+                    <span class="queue-duration">3:45</span>
                 </div>
-                <div class="memory-item">
-                    <span class="memory-date">2021</span>
-                    <span class="memory-song">《匆匆那年》- "青春的尾巴"</span>
+                <div class="queue-item">
+                    <span class="queue-number">3</span>
+                    <div class="queue-info">
+                        <div class="queue-title">星空物语</div>
+                        <div class="queue-artist">苏轼</div>
+                    </div>
+                    <span class="queue-duration">5:12</span>
+                </div>
+                <div class="queue-item">
+                    <span class="queue-number">4</span>
+                    <div class="queue-info">
+                        <div class="queue-title">晨曦序曲</div>
+                        <div class="queue-artist">李白</div>
+                    </div>
+                    <span class="queue-duration">4:03</span>
+                </div>
+                <div class="queue-item">
+                    <span class="queue-number">5</span>
+                    <div class="queue-info">
+                        <div class="queue-title">月下独酌</div>
+                        <div class="queue-artist">杜甫</div>
+                    </div>
+                    <span class="queue-duration">3:58</span>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="bottom-features">
-        <div class="feature-card">
-            <span class="feature-icon">📝</span>
-            <h3 class="feature-title">音乐日记</h3>
-            <p class="feature-desc">为每一天的音乐配上心情文字，让旋律承载记忆，多年后回顾时光里的温暖片段</p>
-        </div>
-
-        <div class="feature-card">
-            <span class="feature-icon">💌</span>
-            <h3 class="feature-title">情绪胶囊</h3>
-            <p class="feature-desc">录下此刻想说的话，封存一首歌，设定未来开启的时间，给未来的自己一份惊喜</p>
-        </div>
-
-        <div class="feature-card">
-            <span class="feature-icon">👫</span>
-            <h3 class="feature-title">二人世界</h3>
-            <p class="feature-desc">与挚友建立专属音乐空间，远程同步播放，分享彼此的音乐心情，仿佛身边有你</p>
-        </div>
-
-        <div class="feature-card">
-            <span class="feature-icon">🗺️</span>
-            <h3 class="feature-title">旅途歌单</h3>
-            <p class="feature-desc">自动生成旅行音乐轨迹，每首歌都连接着珍贵的时光记忆，重温那些美好的足迹</p>
         </div>
     </div>
 </div>
